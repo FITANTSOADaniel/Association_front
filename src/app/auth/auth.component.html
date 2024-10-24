@@ -1,0 +1,73 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="false"
+    [name]="'login'">
+  </ngx-spinner>
+
+  <p-toast></p-toast>
+
+<div class="max-w-lg mx-auto my-10 bg-white shadow-lg rounded-lg p-6" [ngClass]="{'hidden': isLoading}">
+    <h2 class="text-xl font-bold text-center mb-3 text-primary">{{ isLogin ? 'Se connecter' : 'S\'inscrire' }}</h2>
+    <form>
+        <div class="flex justify-between flex-col" *ngIf="!isLogin">
+            <div class="flex justify-between">
+                <div class="w-60">
+                    <label for="last_name" class="block text-gray-700">Nom</label>
+                    <input pInputText id="last_name" type="text" class="mt-1 block w-full border border-gray-300 rounded-md p-2" [(ngModel)]="userBody.last_name" name="last_name" required />
+                </div>
+                <div class="w-60 m-[8px] mt-0">
+                    <label for="first_name" class="block text-gray-700">Prénom</label>
+                    <input pInputText id="first_name" type="text" class="mt-1 block w-full border border-gray-300 rounded-md p-2" [(ngModel)]="userBody.first_name" name="first_name" required />
+                </div> 
+            </div>
+                  <label for="association" class="block text-gray-700">Association</label>
+                  <p-dropdown 
+                    class="mb-4"
+                    [options]="associations"
+                    [(ngModel)]="userBody.association_id"
+                    name="association"
+                    optionLabel="name"
+                    optionValue="id"
+                    placeholder="Choisir une association" />
+            </div>
+        <div class="mb-4 mt-0">
+            <label for="email" class="block text-gray-700">Email</label>
+            <input pInputText id="email" type="email" class="mt-1 block w-full border border-gray-300 rounded-md p-2" [(ngModel)]="userBody.email" name="email" required />
+        </div>
+        <div class="mb-4">
+            <label for="password" class="block text-gray-700">Password</label>
+            <input pInputText id="password" type="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" [(ngModel)]="userBody.password" name="password" required />
+        </div>
+          
+        <div class="w-48 mx-auto mt-8">
+            <button (click)="isLogin ? login() : signup()" type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">
+                <i class="pi pi-user"></i> {{ isLogin ? 'Se connecter' : 'S\'inscrire' }}
+            </button>
+        </div>
+    </form>
+    <p class="text-center mt-4">
+        <a (click)="toggleForm()" class="text-blue-500 cursor-pointer link text-blue-500 underline">
+            {{ isLogin ? "Vous n'avez pas de compte" : 'Vous avez déja de compte' }}
+        </a>
+    </p>
+    <div class="text-center mt-4"><h5 style="color:rgb(224, 47, 47); margin: auto;">{{errorMessage}}</h5></div>
+    <div class="text-center mt-4 mb-4"><h5 style="color:rgb(224, 47, 47); margin: auto;">{{errorMessage1}}</h5></div>
+</div>
+
+<div class="mx-auto flex justify-center items-center mt-72" [ngClass]="{'hidden': !isLoading}">
+    <p-progressSpinner ariaLabel="loading" />
+</div>
+
+<div class="flex justify-content-center">
+    <p-dialog 
+        header="Notification" 
+        [(visible)]="visible" 
+        [modal]="true" 
+        [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
+        [style]="{ width: '50vw' }" 
+        [draggable]="false" 
+        [resizable]="false">
+            <h6>
+                Votre demande a été bien reçu par l'admnistrateur,
+                Vous allez recevoir une Email de confirmation de votre compte
+            </h6>
+    </p-dialog>
+</div>

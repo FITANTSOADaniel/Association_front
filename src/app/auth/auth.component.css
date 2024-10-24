@@ -1,0 +1,40 @@
+.card {
+    max-width: 400px; /* Largeur maximum de la carte */
+    margin: 2rem auto; /* Centrer la carte avec une marge */
+    padding: 1.5rem; /* Padding intérieur */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    background-color: #ffffff; /* Fond blanc */
+}
+
+h2 {
+    margin-bottom: 1rem; /* Espace en dessous du titre */
+    font-size: 1.5rem; /* Taille du texte */
+    color: #333; /* Couleur du texte */
+}
+
+label {
+    font-weight: bold; /* Texte des étiquettes en gras */
+    color: #555; /* Couleur des étiquettes */
+}
+
+input {
+    border-radius: 5px; /* Coins arrondis pour les champs de saisie */
+    border: 1px solid #ccc; /* Bordure grise */
+    padding: 0.5rem; /* Padding intérieur */
+}
+
+input:focus {
+    border-color: #007ad9; /* Couleur de la bordure lors du focus */
+    outline: none; /* Supprime l'outline par défaut */
+}
+
+.p-button {
+    background-color: #007ad9; /* Couleur de fond du bouton */
+    color: #ffffff; /* Couleur du texte du bouton */
+    border: none; /* Pas de bordure */
+}
+
+.p-button:hover {
+    background-color: #005bb5; /* Couleur du bouton au survol */
+}

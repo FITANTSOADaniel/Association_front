@@ -22,12 +22,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from 'primeng/dialog';
+import { MenubarModule } from 'primeng/menubar';
+import { SidebarModule } from 'primeng/sidebar';
+import { RouterModule } from '@angular/router';
+import { PageComponent } from './page/page.component';
+import { HomeModule } from './home/home.module';
+import { ProfilComponent } from './profil/profil.component';
+import { PageProfilComponent } from './page-profil/page-profil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AuthComponent
+    AuthComponent,
+    PageComponent,
+    ProfilComponent,
+    PageProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +55,10 @@ import { DialogModule } from 'primeng/dialog';
     HttpClientModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    DialogModule
+    DialogModule,
+    MenubarModule,
+    SidebarModule,
+    HomeModule
   ],
   providers: [MessageService, ProgressSpinner, HttpClient],
   bootstrap: [AppComponent],

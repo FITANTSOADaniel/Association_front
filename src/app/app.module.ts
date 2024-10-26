@@ -28,7 +28,10 @@ import { RouterModule } from '@angular/router';
 import { PageComponent } from './page/page.component';
 import { HomeModule } from './home/home.module';
 import { ProfilComponent } from './profil/profil.component';
-import { PageProfilComponent } from './page-profil/page-profil.component';
+import { AvatarModule } from 'primeng/avatar';
+import { ImageModule } from 'primeng/image';
+import { FieldsetModule } from 'primeng/fieldset';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -36,8 +39,7 @@ import { PageProfilComponent } from './page-profil/page-profil.component';
     HomeComponent,
     AuthComponent,
     PageComponent,
-    ProfilComponent,
-    PageProfilComponent
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,11 @@ import { PageProfilComponent } from './page-profil/page-profil.component';
     DialogModule,
     MenubarModule,
     SidebarModule,
-    HomeModule
+    HomeModule,
+    AvatarModule,
+    ImageModule,
+    FieldsetModule,
+    FileUploadModule
   ],
   providers: [MessageService, ProgressSpinner, HttpClient],
   bootstrap: [AppComponent],

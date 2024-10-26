@@ -12,6 +12,7 @@ export class HomeComponent {
     private router: Router,
     ){}
         items: MenuItem[] | undefined;
+        currentView = 'page';
 
         ngOnInit() {
             this.items = [
@@ -33,5 +34,8 @@ export class HomeComponent {
         }
         onLogoutClick(){
             alert('lougout cliqué')
+        }
+        showView(view: string) {
+            this.currentView = view;
         }
 }

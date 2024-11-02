@@ -74,7 +74,7 @@ export class AuthComponent {
       (user) => {
           this.cookieService.set('sessionUser', user.authorisation.token)
           this.isLoading = false
-          this.router.navigate(['/home']);
+          this.router.navigate(['/page']);
       },
       (error: any) => {
         this.isLoading = false

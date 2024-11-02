@@ -30,13 +30,7 @@
                 "node_modules/primeicons/primeicons.css",
                 "node_modules/primeng/resources/themes/saga-blue/theme.css",
                 "node_modules/primeng/resources/primeng.min.css",
-                "src/assets/css/boxicons.min.css",
-                "src/assets/css/bootstrap/bootstrap.min.css",
-                "src/assets/css/style.css",
-                "src/assets/css/components.css",
-                "src/assets/css/media.css",
-                "src/assets/css/chat.css",
-                "node_modules/ngx-spinner/animations/ball-spin.css"
+                "src/assets/css/boxicons.min.css"
               ],
 
            "scripts": [
@@ -116,7 +110,9 @@
                 "src/assets/css/components.css",
                 "src/assets/css/media.css",
                 "src/assets/css/chat.css",
-                "node_modules/ngx-spinner/animations/ball-spin.css"
+                "node_modules/ngx-spinner/animations/ball-spin.css",
+                "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+                "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           }

@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { Component,  ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Sidebar } from 'primeng/sidebar';
+import { ServiceService } from '../service/service.service';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: 'app-home',
@@ -8,34 +11,55 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+    @ViewChild('sidebarRef') sidebarRef!: Sidebar;
+
+    sidebarVisible: boolean = true;
+    userName:any ="";
+
     constructor(
     private router: Router,
+    private cookieService: CookieService,
+    private service: ServiceService,
+    private confirmationService: ConfirmationService,
+     private messageService: MessageService
     ){}
-        items: MenuItem[] | undefined;
-        currentView = 'page';
+    ngOnInit() {
+      this.userName=this.service.findUser().first_name+" "+this.service.findUser().last_name;
+    }
 
-        ngOnInit() {
-            this.items = [
-                {
-                    label: 'Acceuil',
-                    icon: 'pi pi-home',
-                    command: () => this.onHomeClick(),
-                },
-                {
-                    label: 'Déconnecter',
-                    icon: 'pi pi-power-off',
-                }
-            ]
-        }
+    logout() {
+      this.confirmationService.confirm({
+        message: "Etes vous sur de se déconnecter?",
+        header: "Confirmation",
+        icon: "pi pi-exclamation-triangle",
+        acceptIcon: "none",
+        rejectIcon: "none",
+        rejectButtonStyleClass: "p-button-text",
+        acceptLabel: "Oui", 
+        rejectLabel: "Non",
+        accept: () => {
+          this.logoutCurrentUser();
+        },
+        reject: () => {},
+      });
+    }
 
-        onHomeClick() {
-            alert('Accueil cliqué');
-            //this.router.navigate(['/profil']);
+    logoutCurrentUser(): void {
+      const token = this.cookieService.get('sessionUser');
+      if (!token) {
+        console.error('Token non trouvé dans le cookie');
+        return;
+      }
+      this.service.logout().subscribe(
+        (data) => {
+          console.log("Déconnexion réussie");
+          this.cookieService.delete('sessionUser','/');
+          this.router.navigate(['']);
+        },
+        (error) => {
+          //let status = this.statusService.getStatus();
+          this.messageService.add({ severity: 'error', summary: 'Error', detail:  status });
         }
-        onLogoutClick(){
-            alert('lougout cliqué')
-        }
-        showView(view: string) {
-            this.currentView = view;
-        }
+      );
+    }
 }

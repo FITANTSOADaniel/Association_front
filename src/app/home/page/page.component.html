@@ -1,0 +1,46 @@
+<!-- <div class="media-body">
+    <div class="form-group post-input">
+        <span>Créer une nouvelle publication</span>
+        <textarea class="form-control" id="postForm" rows="2" placeholder="Description de la pub"></textarea>
+        <div class="row post-form-group">
+            <div class="col-md-9">
+                <button type="button" class="btn btn-link post-form-btn btn-sm">
+                    <img src="assets/images/icons/theme/post-image.png" alt="post form icon"> <span>Photo/Video</span>
+                </button>
+            </div>
+            <div class="col-md-3 text-right">
+                <button type="button" class="btn btn-primary btn-sm">Publier</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="card flex justify-content-center">
+    <p-card header="Créer une nouvelle pub">
+        <p class="m-0">
+            <textarea
+                rows="2"
+                cols="100"
+                placeholder="Entrez une description de la pub"
+                [(ngModel)]="pubBody.desc"
+                pInputTextarea required>
+            </textarea>
+            <p-button class="ml-4" label="Publier"  (onClick)="publier()" />
+        </p>
+    </p-card>
+</div>
+
+<div class="mt-4">
+    <p-fieldset *ngFor="let post of posts" >
+    <ng-template pTemplate="header">
+        <div class="flex align-items-center gap-2 px-2">
+            <p-avatar 
+                [image]="pathUrl+post.user.profil"
+                shape="circle" />
+            <span class="font-bold">{{post.user.last_name}}</span>
+        </div>
+    </ng-template>
+    <p class="m-0">
+        {{post.description}}
+    </p>
+    </p-fieldset>
+</div>

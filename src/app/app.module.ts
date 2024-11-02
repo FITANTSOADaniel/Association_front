@@ -24,22 +24,16 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from 'primeng/dialog';
 import { MenubarModule } from 'primeng/menubar';
 import { SidebarModule } from 'primeng/sidebar';
-import { RouterModule } from '@angular/router';
-import { PageComponent } from './page/page.component';
 import { HomeModule } from './home/home.module';
-import { ProfilComponent } from './profil/profil.component';
 import { AvatarModule } from 'primeng/avatar';
-import { ImageModule } from 'primeng/image';
-import { FieldsetModule } from 'primeng/fieldset';
-import { FileUploadModule } from 'primeng/fileupload';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AuthComponent,
-    PageComponent,
-    ProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -59,14 +53,12 @@ import { FileUploadModule } from 'primeng/fileupload';
     NoopAnimationsModule,
     DialogModule,
     MenubarModule,
-    SidebarModule,
     HomeModule,
+    SidebarModule,
     AvatarModule,
-    ImageModule,
-    FieldsetModule,
-    FileUploadModule
+    ConfirmDialogModule
   ],
-  providers: [MessageService, ProgressSpinner, HttpClient],
+  providers: [MessageService, ProgressSpinner, HttpClient, ConfirmationService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

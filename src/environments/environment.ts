@@ -9,7 +9,7 @@ export const environment = {
     url_image: '/assets/img/', */
    production: false,
     url: 'http://localhost:8000',
-    PATH_URL: 'http://localhost:8000/storage/filaka/',
+    PATH_URL: 'http://localhost:8000/storage/',
     url_image: '/assets/img/', 
 };
 

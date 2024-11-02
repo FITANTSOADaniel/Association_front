@@ -1,16 +1,38 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { RouterModule } from '@angular/router';
-import { PageComponent } from '../page/page.component';
+import { HomeRoutes } from './home.routing.module';
+import { ImageModule } from 'primeng/image';
+import { PageComponent } from './page/page.component';
+import { ProfilComponent } from './profil/profil.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { StyleClassModule } from 'primeng/styleclass';
+import { AvatarModule } from 'primeng/avatar';
+import { FieldsetModule } from 'primeng/fieldset';
+import { CardModule } from 'primeng/card';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PageComponent,
+    ProfilComponent
+  ],
   imports: [
     CommonModule,
-    RouterModule.forRoot([
-    { path: 'page', component: PageComponent }
-    ])
-  ]
+    HomeRoutes,
+    ImageModule,
+    SidebarModule,
+    ButtonModule,
+    RippleModule,
+    StyleClassModule,
+    AvatarModule,
+    FieldsetModule,
+    CardModule,
+    InputTextareaModule,
+    FormsModule
+  ],
+  exports: []
 })
 export class HomeModule { }
